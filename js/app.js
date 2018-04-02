@@ -1,6 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
+// Create listOfCards from DOM elements
 let listOfCards = document.querySelectorAll('.card');
 
 /*
