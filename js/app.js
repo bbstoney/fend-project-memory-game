@@ -32,6 +32,14 @@ function shuffle(array) {
     return array;
 }
 
+// Clear deck from cards
+function clearDeck(){
+	let deck = document.querySelector('.deck');
+	while(deck.firstChild){
+		deck.removeChild(deck.firstChild);
+	}
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
