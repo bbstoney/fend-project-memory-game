@@ -44,6 +44,12 @@ function createDeck(){
 // Loading page with shuffled deck
 window.onload = (createDeck());
 
+// Reset Moves counter
+function resetMoves(){
+	let movesCounter = document.querySelector('.moves');
+	movesCounter.innerHTML = '0';
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
