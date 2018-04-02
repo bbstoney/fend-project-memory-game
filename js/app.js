@@ -67,6 +67,13 @@ function resetStars(){
 	
 }
 
+// Add click event to restart button
+let restartBtn = document.querySelector('.restart');
+restartBtn.addEventListener('click',function(event){
+	createDeck();
+	resetMoves();
+	resetStars();
+},true);
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
