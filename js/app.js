@@ -32,6 +32,8 @@ function shuffle(array) {
     return array;
 }
 
+// Shuffle arrayOfCards as shuffledArrayOfCards
+let shuffledArrayOfCards = shuffle(arrayOfCards);
 
 /*
  * set up the event listener for a card. If a card is clicked:
