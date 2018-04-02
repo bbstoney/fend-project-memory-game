@@ -42,7 +42,11 @@ function createDeck(){
 }
 
 // Loading page with shuffled deck
-window.onload = (createDeck());
+window.onload = function(){
+	createDeck();
+	resetMoves();
+	resetStars();
+}
 
 // Reset Moves counter
 function resetMoves(){
