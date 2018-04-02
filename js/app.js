@@ -40,6 +40,15 @@ function clearDeck(){
 	}
 }
 
+// Create HTML for shuffled cards
+function createDeck(){
+	let shuffledArrayOfCards = shuffle(arrayOfCards);
+	let deck = document.querySelector('.deck');
+	shuffledArrayOfCards.forEach(function(arrayItem){
+		deck.appendChild(arrayItem);
+	});
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
