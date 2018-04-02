@@ -4,6 +4,12 @@
 // Create listOfCards from DOM elements
 let listOfCards = document.querySelectorAll('.card');
 
+// Transform listOfCards to arrayOfCards
+let arrayOfCards = [];
+listOfCards.forEach(function(arrayItem) {
+	arrayOfCards.push(arrayItem);
+});
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
