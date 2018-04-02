@@ -32,14 +32,6 @@ function shuffle(array) {
     return array;
 }
 
-// Clear deck from cards
-function clearDeck(){
-	let deck = document.querySelector('.deck');
-	while(deck.firstChild){
-		deck.removeChild(deck.firstChild);
-	}
-}
-
 // Create HTML for shuffled cards
 function createDeck(){
 	let shuffledArrayOfCards = shuffle(arrayOfCards);
