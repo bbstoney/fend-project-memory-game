@@ -50,6 +50,19 @@ function resetMoves(){
 	movesCounter.innerHTML = '0';
 }
 
+// Reset stars counter
+function resetStars(){
+	let starsParent = document.querySelector('.stars');
+	const htmlToAdd = '<li><i class="fa fa-star"></i></li>';
+	while(starsParent.firstChild){
+		starsParent.removeChild(starsParent.firstChild);
+	}
+	for(let i=1; i<=3; i++){
+		starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
+	}
+	
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
