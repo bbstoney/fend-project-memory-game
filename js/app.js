@@ -67,6 +67,16 @@ function resetStars(){
 	
 }
 
+// Reset card classes
+function resetClass(){
+	let deck = document.querySelector('.deck');
+	let cards = document.querySelectorAll('.card');
+	cards.forEach(function(listItem){
+		let classList = listItem.classList;
+		classList.remove('open', 'match', 'show', 'hide');
+	});
+}
+
 // Add click event to restart button
 let restartBtn = document.querySelector('.restart');
 restartBtn.addEventListener('click',function(event){
