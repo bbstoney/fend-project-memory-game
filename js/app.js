@@ -96,3 +96,54 @@ restartBtn.addEventListener('click',function(event){
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+let deck = document.querySelector('.deck');
+let flippedCardChildClassName = [];
+let numberOfFlippedCards = 2;
+let clickedElementClasses = [];
+
+deck.addEventListener('click',function(event){
+	let listOfCards = document.querySelectorAll('.card');
+	let clickedCard = event.target;
+	let clickedCardChildClassName = clickedCard.firstElementChild.classList[1];
+	
+	if(numberOfFlippedCards > 1){
+		
+		numberOfFlippedCards--;
+		clickedCard.classList.add('open','show');
+		flippedCardChildClassName.push(clickedCardChildClassName);
+		clickedElementClasses.push(clickedCard);
+		
+	} else {
+		
+		numberOfFlippedCards = 2;
+		clickedCard.classList.add('open','show');
+		flippedCardChildClassName.push(clickedCardChildClassName);
+		clickedElementClasses.push(clickedCard);
+				
+		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
+			
+			flippedCardChildClassName = [];
+			clickedElementClasses.forEach(function(element){
+				element.classList.add('match');
+			});
+			
+			//console.log('cards match');
+			clickedElementClasses = [];
+			
+		} else {
+			
+			flippedCardChildClassName = [];
+			setTimeout(function(){
+				clickedElementClasses.forEach(function(element){
+					element.classList.remove('show', 'open');
+				});
+			} ,2000);
+			
+			//console.log('cards mismatch');
+			clickedElementClasses = [];
+		}
+	}
+	
+	//console.log(numberOfFlippedCards);
+},true);
