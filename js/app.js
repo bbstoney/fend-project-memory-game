@@ -77,7 +77,7 @@ function resetClass(){
 	let cards = document.querySelectorAll('.card');
 	cards.forEach(function(listItem){
 		let classList = listItem.classList;
-		classList.remove('open', 'match', 'show', 'hide');
+		classList.remove('open', 'match', 'show', 'hide', 'mismatch');
 	});
 }
 
@@ -114,42 +114,32 @@ deck.addEventListener('click',function(event){
 	
 	if(numberOfFlippedCards > 1){
 		
-		numberOfFlippedCards--;
 		clickedCard.classList.add('open','show');
 		flippedCardChildClassName.push(clickedCardChildClassName);
 		clickedElementClasses.push(clickedCard);
+		numberOfFlippedCards--;
 		
 	} else {
 		
-		numberOfFlippedCards = 2;
-		clickedCard.classList.add('open','show');
 		flippedCardChildClassName.push(clickedCardChildClassName);
 		clickedElementClasses.push(clickedCard);
+		clickedCard.classList.add('open','show');
 		movesCounter.innerHTML = ++moves;
-				
+		numberOfFlippedCards = 2;
 		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
-			
-			flippedCardChildClassName = [];
 			clickedElementClasses.forEach(function(element){
+				element.classList.remove('mismatch');
 				element.classList.add('match');
 			});
-			
-			//console.log('cards match');
-			clickedElementClasses = [];
-			
-		} else {
-			
 			flippedCardChildClassName = [];
-			setTimeout(function(){
-				clickedElementClasses.forEach(function(element){
-					element.classList.remove('show', 'open');
-				});
-			} ,2000);
-			
-			//console.log('cards mismatch');
+			clickedElementClasses = [];
+		} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
+			clickedElementClasses.forEach(function(element){
+				element.classList.add('mismatch');
+				element.classList.remove('match');
+			});
+			flippedCardChildClassName = [];
 			clickedElementClasses = [];
 		}
 	}
-	
-	//console.log(numberOfFlippedCards);
 },true);
