@@ -125,7 +125,7 @@ deck.addEventListener('click',function(event){
 		clickedCard.classList.add('open','show');
 		flippedCardChildClassName.push(clickedCardChildClassName);
 		clickedElementClasses.push(clickedCard);
-		console.log(movesCounter.innerHTML = ++moves);
+		movesCounter.innerHTML = ++moves;
 				
 		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
 			
