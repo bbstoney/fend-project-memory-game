@@ -13,6 +13,9 @@ listOfCards.forEach(function(arrayItem) {
 // Moves counter variable
 let moves = 0;
 
+// Timer Counter
+let timer = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -88,6 +91,7 @@ restartBtn.addEventListener('click',function(event){
 	createDeck();
 	resetMoves();
 	resetStars();
+	timer = 0;
 },true);
 
 /*
@@ -152,3 +156,10 @@ deck.addEventListener('click',function(event){
 		}, 1000);
 	}
 },true);
+
+let timerHtml = document.querySelector('span.timer');
+function liveTimer(){
+	return timerHtml.innerHTML = ++timer;
+	
+}
+setInterval(liveTimer,1000);
