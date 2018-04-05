@@ -116,6 +116,11 @@ deck.addEventListener('click',function(event){
 	let clickedCard = event.target;
 	let clickedCardChildClassName = clickedCard.firstElementChild.classList[1];
 	
+	// Clear cards from all classes
+	listOfCards.forEach(function(element){
+		element.classList.remove('open', 'show', 'match', 'mismatch', 'animated', 'bounce', 'rubberBand');
+	});
+	
 	if(numberOfFlippedCards > 1){
 		
 		clickedCard.classList.add('open','show');
@@ -133,13 +138,13 @@ deck.addEventListener('click',function(event){
 		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
 			clickedElementClasses.forEach(function(element){
 				element.classList.remove('mismatch');
-				element.classList.add('match');
+				element.classList.add('match', 'animated', 'rubberBand');
 			});
 			flippedCardChildClassName = [];
 			clickedElementClasses = [];
 		} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
 			clickedElementClasses.forEach(function(element){
-				element.classList.add('mismatch');
+				element.classList.add('mismatch', 'animated', 'bounce');
 				element.classList.remove('match');
 			});
 			flippedCardChildClassName = [];
@@ -152,14 +157,15 @@ deck.addEventListener('click',function(event){
 		setTimeout(function(){
 				mismatchCards.forEach(function(item){
 				item.classList.remove('mismatch', 'open', 'show');
+				item.classList.remove('animated', 'bounce');
 			});
 		}, 1000);
 	}
 },true);
 
+// Add live timer to the game
 let timerHtml = document.querySelector('span.timer');
 function liveTimer(){
 	return timerHtml.innerHTML = ++timer;
-	
 }
 setInterval(liveTimer,1000);
