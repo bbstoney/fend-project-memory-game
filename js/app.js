@@ -54,6 +54,7 @@ window.onload = function(){
 // Reset Moves counter
 function resetMoves(){
 	let movesCounter = document.querySelector('.moves');
+	moves = 0;
 	movesCounter.innerHTML = moves;
 }
 
@@ -89,11 +90,6 @@ restartBtn.addEventListener('click',function(event){
 	resetStars();
 },true);
 
-// Increment moves counter
-function incrementMovesCounter(moves){
-	return moves++;
-}
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -109,6 +105,7 @@ let deck = document.querySelector('.deck');
 let flippedCardChildClassName = [];
 let numberOfFlippedCards = 2;
 let clickedElementClasses = [];
+let movesCounter = document.querySelector('.moves');
 
 deck.addEventListener('click',function(event){
 	let listOfCards = document.querySelectorAll('.card');
@@ -128,6 +125,7 @@ deck.addEventListener('click',function(event){
 		clickedCard.classList.add('open','show');
 		flippedCardChildClassName.push(clickedCardChildClassName);
 		clickedElementClasses.push(clickedCard);
+		console.log(movesCounter.innerHTML = ++moves);
 				
 		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
 			
