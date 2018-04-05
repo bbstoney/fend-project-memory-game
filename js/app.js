@@ -10,6 +10,9 @@ listOfCards.forEach(function(arrayItem) {
 	arrayOfCards.push(arrayItem);
 });
 
+// Moves counter variable
+let moves = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -51,7 +54,7 @@ window.onload = function(){
 // Reset Moves counter
 function resetMoves(){
 	let movesCounter = document.querySelector('.moves');
-	movesCounter.innerHTML = '0';
+	movesCounter.innerHTML = moves;
 }
 
 // Reset stars counter
