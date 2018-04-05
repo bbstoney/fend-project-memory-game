@@ -89,6 +89,11 @@ restartBtn.addEventListener('click',function(event){
 	resetStars();
 },true);
 
+// Increment moves counter
+function incrementMovesCounter(moves){
+	return moves++;
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
