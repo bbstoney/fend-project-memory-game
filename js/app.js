@@ -142,4 +142,13 @@ deck.addEventListener('click',function(event){
 			clickedElementClasses = [];
 		}
 	}
+	// Unflipp mismatching cards
+	let mismatchCards = document.querySelectorAll('.mismatch');
+	if(mismatchCards.length === 2){
+		setTimeout(function(){
+				mismatchCards.forEach(function(item){
+				item.classList.remove('mismatch', 'open', 'show');
+			});
+		}, 1000);
+	}
 },true);
