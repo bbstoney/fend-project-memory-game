@@ -80,7 +80,7 @@ function resetClass(){
 	let cards = document.querySelectorAll('.card');
 	cards.forEach(function(listItem){
 		let classList = listItem.classList;
-		classList.remove('open', 'match', 'show', 'hide', 'mismatch');
+		classList.remove('open', 'match', 'show', 'hide', 'mismatch', 'animate', 'bounce', 'rubberBand');
 	});
 }
 
@@ -115,11 +115,6 @@ deck.addEventListener('click',function(event){
 	let listOfCards = document.querySelectorAll('.card');
 	let clickedCard = event.target;
 	let clickedCardChildClassName = clickedCard.firstElementChild.classList[1];
-	
-	// Clear cards from all classes
-	listOfCards.forEach(function(element){
-		element.classList.remove('open', 'show', 'match', 'mismatch', 'animated', 'bounce', 'rubberBand');
-	});
 	
 	if(numberOfFlippedCards > 1){
 		
