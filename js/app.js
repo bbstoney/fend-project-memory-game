@@ -127,7 +127,16 @@ deck.addEventListener('click',function(event){
 	let clickedCardChildClassName = clickedCard.firstElementChild.classList[1];
 	
 	if(numberOfFlippedCards > 1){
+		//checks if there are mismatch elements to clear
+		let clearMismatches = document.querySelectorAll('.mismatch');
+		if(clearMismatches.length != 0){
+			clearMismatches.forEach(function(item){
+				item.classList.remove('mismatch');
+			});
+		}
+		// makes sure i clicked a card
 		if(clickedCard.classList.contains('card')){
+			// if the card is not open
 			if(!(clickedCard.classList.contains('open'))){
 				clickedCard.classList.add('open','show');
 				flippedCardChildClassName.push(clickedCardChildClassName);
@@ -136,26 +145,25 @@ deck.addEventListener('click',function(event){
 			}
 		}
 	} else {
-		
+		// if card doesn't contain open
 		if(!(clickedCard.classList.contains('open'))){
 			flippedCardChildClassName.push(clickedCardChildClassName);
 			clickedElementClasses.push(clickedCard);
 			clickedCard.classList.add('open','show');
 			movesCounter.innerHTML = ++moves;
 			numberOfFlippedCards = 2;
-			
+			// if open cards match
 			if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
 				clickedElementClasses.forEach(function(element){
-					element.classList.remove('mismatch');
 					element.classList.add('match', 'animated', 'rubberBand');
 				});
 				flippedCardChildClassName = [];
 				clickedElementClasses = [];
 				displayWinningMsg();
+				//if open cards mismatch
 			} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
 				clickedElementClasses.forEach(function(element){
 					element.classList.add('mismatch', 'animated', 'bounce');
-					element.classList.remove('match');
 				});
 				flippedCardChildClassName = [];
 				clickedElementClasses = [];
@@ -163,15 +171,7 @@ deck.addEventListener('click',function(event){
 		}
 	}
 	// Unflipp mismatching cards
-	let mismatchCards = document.querySelectorAll('.mismatch');
-	if(mismatchCards.length === 2){
-		setTimeout(function(){
-				mismatchCards.forEach(function(item){
-				item.classList.remove('mismatch', 'open', 'show');
-				item.classList.remove('animated', 'bounce');
-			});
-		}, 1000);
-	}
+	unflippCardMismatch();
 	
 	// Decreasing Stars based on moves count
 	if(moves === 12){
@@ -207,6 +207,18 @@ deck.addEventListener('click',function(event){
 	}
 	
 },true);
+
+// Add unflippCardMismatch function
+function unflippCardMismatch(){
+	let mismatchCards = document.querySelectorAll('.mismatch');
+	if(mismatchCards.length === 2){
+		setTimeout(function(){
+				mismatchCards.forEach(function(item){
+				item.classList.remove('mismatch', 'open', 'show', 'animated', 'bounce');
+			});
+		}, 1000);
+	}
+}
 
 // Add live timer to the game
 let timerHtml = document.querySelector('span.timer');
