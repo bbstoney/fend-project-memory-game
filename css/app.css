@@ -137,7 +137,6 @@ h1 {
 		display: flex;
 		flex-wrap: wrap;
 	  padding: 10px;
-		top: -999px;
 }
 
 #congrats .title {
@@ -193,4 +192,8 @@ h1 {
 #congrats .new-game button:hover {
 		background-color: #033e57;
 		cursor: pointer;
+}
+
+.hide-msg {
+		top: -999px;
 }

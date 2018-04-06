@@ -16,6 +16,9 @@ let moves = 0;
 // Timer Counter
 let timer = 0;
 
+// Grabbing winning msg container
+let div = document.querySelector('#congrats');
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -137,6 +140,7 @@ deck.addEventListener('click',function(event){
 			});
 			flippedCardChildClassName = [];
 			clickedElementClasses = [];
+			displayWinningMsg();
 		} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
 			clickedElementClasses.forEach(function(element){
 				element.classList.add('mismatch', 'animated', 'bounce');
@@ -186,3 +190,36 @@ function liveTimer(){
 	return timerHtml.innerHTML = ++timer;
 }
 setInterval(liveTimer,1000);
+
+// Display winning msg on winning game
+function displayWinningMsg(){
+	let cardClassesList = document.querySelectorAll('.match');
+	if(cardClassesList.length === 16) {
+		div.classList.remove('hide-msg', 'bounceOutUp');
+		div.classList.add('bounceInDown');
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
