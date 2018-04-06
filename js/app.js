@@ -91,16 +91,6 @@ function resetClass(){
 	});
 }
 
-// Add click event to restart button
-let restartBtn = document.querySelector('.restart');
-restartBtn.addEventListener('click',function(event){
-	resetClass();
-	createDeck();
-	resetMoves();
-	resetStars();
-	timer = 0;
-},true);
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -118,18 +108,31 @@ let numberOfFlippedCards = 2;
 let clickedElementClasses = [];
 let movesCounter = document.querySelector('.moves');
 
+// Add click event to restart button
+let restartBtn = document.querySelector('.restart');
+restartBtn.addEventListener('click',function(event){
+	resetClass();
+	createDeck();
+	resetMoves();
+	resetStars();
+	timer = 0;
+	flippedCardChildClassName = [];
+	clickedElementClasses = [];
+	numberOfFlippedCards = 2;
+},true);
+
 deck.addEventListener('click',function(event){
 	let listOfCards = document.querySelectorAll('.card');
 	let clickedCard = event.target;
 	let clickedCardChildClassName = clickedCard.firstElementChild.classList[1];
 	
 	if(numberOfFlippedCards > 1){
-		
-		clickedCard.classList.add('open','show');
-		flippedCardChildClassName.push(clickedCardChildClassName);
-		clickedElementClasses.push(clickedCard);
-		numberOfFlippedCards--;
-		
+		if(clickedCard.classList.contains('card')){
+			clickedCard.classList.add('open','show');
+			flippedCardChildClassName.push(clickedCardChildClassName);
+			clickedElementClasses.push(clickedCard);
+			numberOfFlippedCards--;
+		}
 	} else {
 		
 		flippedCardChildClassName.push(clickedCardChildClassName);
@@ -137,6 +140,7 @@ deck.addEventListener('click',function(event){
 		clickedCard.classList.add('open','show');
 		movesCounter.innerHTML = ++moves;
 		numberOfFlippedCards = 2;
+		
 		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
 			clickedElementClasses.forEach(function(element){
 				element.classList.remove('mismatch');
@@ -235,27 +239,16 @@ function startNewGameBtn(){
 		liveTimerVar = setInterval(liveTimer,1000);
 	}, true);
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
