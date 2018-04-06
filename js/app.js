@@ -212,6 +212,8 @@ function displayWinningMsg(){
 	if(cardClassesList.length === 16) {
 		div.classList.remove('hide-msg', 'bounceOutUp');
 		div.classList.add('bounceInDown');
+		let msgMoves = document.querySelector('.moves-n0-txt > p > span');
+		msgMoves.innerHTML = moves;
 		startNewGameBtn();
 	}
 }
