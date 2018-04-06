@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
-* [Used Libraries](#Used Libraries)
+* [UsedLibraries](#UsedLibraries)
 
 ## Instructions
 
@@ -20,7 +20,7 @@ This repository is the starter code for _all_ Udacity students. Therefore, we mo
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Used Libraries
+## UsedLibraries
 
 1. I used animate.css found in this link: https://daneden.github.io/animate.css/ to animate my game
 
