@@ -15,6 +15,7 @@ let moves = 0;
 
 // Timer Counter
 let timer = 0;
+let liveTimerVar = setInterval(liveTimer,1000);
 
 // Grabbing winning msg container
 let div = document.querySelector('#congrats');
@@ -204,7 +205,7 @@ let timerHtml = document.querySelector('span.timer');
 function liveTimer(){
 	return timerHtml.innerHTML = ++timer;
 }
-setInterval(liveTimer,1000);
+
 
 // Display winning msg on winning game
 function displayWinningMsg(){
@@ -216,6 +217,7 @@ function displayWinningMsg(){
 		msgMoves.innerHTML = moves;
 		let msgTimer = document.querySelector('.timer-txt > p > span');
 		msgTimer.innerHTML = timer;
+		clearInterval(liveTimerVar);
 		startNewGameBtn();
 	}
 }
@@ -230,6 +232,7 @@ function startNewGameBtn(){
 		resetMoves();
 		resetStars();
 		timer = 0;
+		liveTimerVar = setInterval(liveTimer,1000);
 	}, true);
 }
 	
