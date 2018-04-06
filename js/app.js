@@ -177,6 +177,7 @@ deck.addEventListener('click',function(event){
 			starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
 		}
 	}
+	
 },true);
 
 // Add live timer to the game

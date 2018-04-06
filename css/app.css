@@ -136,35 +136,37 @@ h1 {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
 		display: flex;
 		flex-wrap: wrap;
+	  padding: 10px;
+		top: -999px;
 }
 
 #congrats .title {
-	width: 100%;
-	text-align: center;
-	height: 40px;
+		width: 100%;
+		text-align: center;
+		height: 40px;
 }
 
 #congrats .moves-n0-txt {
-	width: 100%;
-	text-align: center;
-	height: 20px;
+		width: 100%;
+		text-align: center;
+		height: 20px;
 }
 
 #congrats .stars-txt {
-	width: 50%;
-	text-align: right;
-	height: 20px;
+		width: 50%;
+		text-align: right;
+		height: 20px;
 }
 
 #congrats .stars-drawing {
-	width: 50%;
-	text-align: left;
-	height: 20px;
+		width: 50%;
+		text-align: left;
+		height: 20px;
 }
 
 .stars-drawing ul {
-	display: inline-block;
-	padding-left: 5px;
+		display: inline-block;
+		padding-left: 5px;
 }
 
 .stars-drawing ul li {
@@ -173,13 +175,22 @@ h1 {
 }
 
 #congrats .new-game {
-	width: 100%;
+		width: 100%;
 }
 
 #congrats .new-game button {
-	width: 100%;
-	height: 50px;
-	text-align: center;
-	margin: 0;
-	padding: 0;
+		width: 100%;
+		height: 50px;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+		background-color: #046aab;
+		color: white;font-family: 'Coda', cursive;
+		font-size: 1.5em;
+		border: none;
+}
+
+#congrats .new-game button:hover {
+		background-color: #033e57;
+		cursor: pointer;
 }
