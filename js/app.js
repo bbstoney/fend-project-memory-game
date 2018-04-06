@@ -156,6 +156,27 @@ deck.addEventListener('click',function(event){
 			});
 		}, 1000);
 	}
+	
+	// Decreasing Stars based on moves count
+	if(moves === 12){
+		let starsParent = document.querySelector('.stars');
+		let htmlToAdd = '<li><i class="fa fa-star"></i></li>';
+		while(starsParent.lastChild){
+			starsParent.removeChild(starsParent.lastChild);
+		}
+		for(let i=1; i<=2; i++){
+			starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
+		}
+	} else if(moves === 20){
+		let starsParent = document.querySelector('.stars');
+		let htmlToAdd = '<li><i class="fa fa-star"></i></li>';
+		while(starsParent.lastChild){
+			starsParent.removeChild(starsParent.lastChild);
+		}
+		for(let i=1; i<=1; i++){
+			starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
+		}
+	}
 },true);
 
 // Add live timer to the game
