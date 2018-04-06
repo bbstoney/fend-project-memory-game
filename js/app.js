@@ -19,6 +19,9 @@ let timer = 0;
 // Grabbing winning msg container
 let div = document.querySelector('#congrats');
 
+// Grabbing new game btn
+let newGameBtn = document.querySelector('.new-game > button');
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -197,7 +200,21 @@ function displayWinningMsg(){
 	if(cardClassesList.length === 16) {
 		div.classList.remove('hide-msg', 'bounceOutUp');
 		div.classList.add('bounceInDown');
+		startNewGameBtn();
 	}
+}
+
+// Start a new game after pressing new game btn
+function startNewGameBtn(){
+	newGameBtn.addEventListener('click', function(event){
+		div.classList.remove('bounceInDown');
+		div.classList.add('bounceOutUp');
+		resetClass();
+		createDeck();
+		resetMoves();
+		resetStars();
+		timer = 0;
+	}, true);
 }
 	
 	
