@@ -22,4 +22,6 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Used Libraries
 
-I used animate.css found in this link: https://daneden.github.io/animate.css/ to animate my game
+1. I used animate.css found in this link: https://daneden.github.io/animate.css/ to animate my game
+
+2. I used font.awesome found in this link https://fontawesome.com/ to generate icons for the game
