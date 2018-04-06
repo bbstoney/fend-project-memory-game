@@ -214,6 +214,8 @@ function displayWinningMsg(){
 		div.classList.add('bounceInDown');
 		let msgMoves = document.querySelector('.moves-n0-txt > p > span');
 		msgMoves.innerHTML = moves;
+		let msgTimer = document.querySelector('.timer-txt > p > span');
+		msgTimer.innerHTML = timer;
 		startNewGameBtn();
 	}
 }

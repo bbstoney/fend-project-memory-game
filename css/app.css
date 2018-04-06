@@ -177,6 +177,11 @@ h1 {
 		width: 100%;
 }
 
+#congrats .timer-txt {
+		width: 100%;
+	text-align: center;
+}
+
 #congrats .new-game button {
 		width: 100%;
 		height: 50px;
