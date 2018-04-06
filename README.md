@@ -5,6 +5,7 @@
 * [Instructions](#instructions)
 * [Contributing](#contributing)
 * [UsedLibraries](#UsedLibraries)
+* [Instructions](#Instructions)
 
 ## Instructions
 
@@ -25,3 +26,14 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 1. I used animate.css found in this link: https://daneden.github.io/animate.css/ to animate my game
 
 2. I used font.awesome found in this link https://fontawesome.com/ to generate icons for the game
+
+
+## Instructions
+
+1. Load the game
+2. Click on cards to flip them
+3. Try to match all the cards in least amout of time and moves
+4. You'll lose stars after 12 moves then after 20 moves
+5. Each time you flipp 2 cards this will count as a move
+6. At the end you'll get stats message
+7. If you like the game you can play again!
