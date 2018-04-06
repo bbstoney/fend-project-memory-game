@@ -167,21 +167,33 @@ deck.addEventListener('click',function(event){
 	// Decreasing Stars based on moves count
 	if(moves === 12){
 		let starsParent = document.querySelector('.stars');
+		let msgStarsParent = document.querySelector('.stars-drawing > ul');
 		let htmlToAdd = '<li><i class="fa fa-star"></i></li>';
 		while(starsParent.lastChild){
 			starsParent.removeChild(starsParent.lastChild);
+			msgStarsParent.removeChild(msgStarsParent.lastChild);
+		}
+		while(msgStarsParent.lastChild){
+			msgStarsParent.removeChild(msgStarsParent.lastChild);
 		}
 		for(let i=1; i<=2; i++){
 			starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
+			msgStarsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
 		}
 	} else if(moves === 20){
 		let starsParent = document.querySelector('.stars');
+		let msgStarsParent = document.querySelector('.stars-drawing > ul');
 		let htmlToAdd = '<li><i class="fa fa-star"></i></li>';
 		while(starsParent.lastChild){
 			starsParent.removeChild(starsParent.lastChild);
+			msgStarsParent.removeChild(msgStarsParent.lastChild);
+		}
+		while(msgStarsParent.lastChild){
+			msgStarsParent.removeChild(msgStarsParent.lastChild);
 		}
 		for(let i=1; i<=1; i++){
 			starsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
+			msgStarsParent.insertAdjacentHTML('afterbegin', htmlToAdd);
 		}
 	}
 	
