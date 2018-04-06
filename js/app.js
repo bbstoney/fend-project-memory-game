@@ -128,34 +128,38 @@ deck.addEventListener('click',function(event){
 	
 	if(numberOfFlippedCards > 1){
 		if(clickedCard.classList.contains('card')){
-			clickedCard.classList.add('open','show');
-			flippedCardChildClassName.push(clickedCardChildClassName);
-			clickedElementClasses.push(clickedCard);
-			numberOfFlippedCards--;
+			if(!(clickedCard.classList.contains('open'))){
+				clickedCard.classList.add('open','show');
+				flippedCardChildClassName.push(clickedCardChildClassName);
+				clickedElementClasses.push(clickedCard);
+				numberOfFlippedCards--;
+			}
 		}
 	} else {
 		
-		flippedCardChildClassName.push(clickedCardChildClassName);
-		clickedElementClasses.push(clickedCard);
-		clickedCard.classList.add('open','show');
-		movesCounter.innerHTML = ++moves;
-		numberOfFlippedCards = 2;
-		
-		if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
-			clickedElementClasses.forEach(function(element){
-				element.classList.remove('mismatch');
-				element.classList.add('match', 'animated', 'rubberBand');
-			});
-			flippedCardChildClassName = [];
-			clickedElementClasses = [];
-			displayWinningMsg();
-		} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
-			clickedElementClasses.forEach(function(element){
-				element.classList.add('mismatch', 'animated', 'bounce');
-				element.classList.remove('match');
-			});
-			flippedCardChildClassName = [];
-			clickedElementClasses = [];
+		if(!(clickedCard.classList.contains('open'))){
+			flippedCardChildClassName.push(clickedCardChildClassName);
+			clickedElementClasses.push(clickedCard);
+			clickedCard.classList.add('open','show');
+			movesCounter.innerHTML = ++moves;
+			numberOfFlippedCards = 2;
+			
+			if(flippedCardChildClassName[0] === flippedCardChildClassName[1]){
+				clickedElementClasses.forEach(function(element){
+					element.classList.remove('mismatch');
+					element.classList.add('match', 'animated', 'rubberBand');
+				});
+				flippedCardChildClassName = [];
+				clickedElementClasses = [];
+				displayWinningMsg();
+			} else if(flippedCardChildClassName[0] !== flippedCardChildClassName[1]){
+				clickedElementClasses.forEach(function(element){
+					element.classList.add('mismatch', 'animated', 'bounce');
+					element.classList.remove('match');
+				});
+				flippedCardChildClassName = [];
+				clickedElementClasses = [];
+			}
 		}
 	}
 	// Unflipp mismatching cards
@@ -239,16 +243,3 @@ function startNewGameBtn(){
 		liveTimerVar = setInterval(liveTimer,1000);
 	}, true);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
